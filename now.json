@@ -1,0 +1,36 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "/lambdas/index.js",
+            "use": "@now/node-server"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/lambdas/index.js",
+            "methods": ["GET"]
+        },
+        {
+            "src": "/world",
+            "dest": "/lambdas/index.js",
+            "methods": ["GET"]
+        },
+        {
+            "src": "/kabupatenbali",
+            "dest": "/lambdas/index.js",
+            "methods": ["GET"]
+        },
+        {
+            "src": "/covidbali",
+            "dest": "/lambdas/index.js",
+            "methods": ["GET"]
+        },
+        {
+            "src": "/world/:country",
+            "dest": "/lambdas/index.js",
+            "methods": ["GET"]
+        }
+    ]
+}
