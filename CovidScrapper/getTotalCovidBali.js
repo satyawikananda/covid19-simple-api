@@ -23,10 +23,10 @@ const getTotalCovidBali = async () => {
            })
            data = {}
            data.provinsi = "bali"
-           data.positif = totalData[0]
-           data.perawatan = totalData[1]
-           data.sembuh = totalData[2]
-           data.meninggal = totalData[3]
+           data.positif = totalData[0].replace(' Org','')
+           data.perawatan = totalData[1].replace(' Org','')
+           data.sembuh = totalData[2].replace(' Org','')
+           data.meninggal = totalData[3].replace(' Org','')
 
            return data
        })
