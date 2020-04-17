@@ -4,11 +4,15 @@
   "description": "Simple covid scrapper",
   "main": "covid.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon ./lambdas/index.js"
   },
   "keywords": [],
   "author": "Satya Wikananda",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "directory": "git+https://github.com/satyawikananda/covid19-simple-scrap.git"
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",

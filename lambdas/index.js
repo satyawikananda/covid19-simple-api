@@ -16,13 +16,13 @@ app.get('/world', (req,res) => {
         })
         .catch(err => console.log(err))
 })
-// app.get('/kabupatenbali', (req,res) => {
-//     CovidScrapper.getDataKab()
-//         .then(data => {
-//             res.send(data)
-//         })
-//         .catch(err => console.log(err))
-// })
+app.get('/covid-badung', (req,res) => {
+    CovidScrapper.getDataKabBadung()
+        .then(data => {
+            res.send(data)
+        })
+        .catch(err => console.log(err))
+})
 app.get('/covid-bali', (req,res) => {
     CovidScrapper.getTotalCovidBali()
         .then(data => {

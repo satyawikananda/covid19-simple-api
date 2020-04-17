@@ -31,6 +31,11 @@
             "src": "/world/:country",
             "dest": "/lambdas/index.js",
             "methods": ["GET"]
+        },
+        {
+            "src": "/covid-badung",
+            "dest": "/lambdas/index.js",
+            "methods": ["GET"]
         }
     ]
 }
