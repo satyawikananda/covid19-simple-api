@@ -16,14 +16,14 @@ app.get('/world', (req,res) => {
         })
         .catch(err => console.log(err))
 })
-app.get('/kabupatenbali', (req,res) => {
-    CovidScrapper.getDataKab()
-        .then(data => {
-            res.send(data)
-        })
-        .catch(err => console.log(err))
-})
-app.get('/covidbali', (req,res) => {
+// app.get('/kabupatenbali', (req,res) => {
+//     CovidScrapper.getDataKab()
+//         .then(data => {
+//             res.send(data)
+//         })
+//         .catch(err => console.log(err))
+// })
+app.get('/covid-bali', (req,res) => {
     CovidScrapper.getTotalCovidBali()
         .then(data => {
             res.send(data)

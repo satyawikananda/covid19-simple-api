@@ -4,13 +4,13 @@
  */
 
  const getTotalCovidBali = require('./getTotalCovidBali.js')
- const getDataKab = require('./getDataKab.js')
+ const getDataKabBadung = require('./getDataKabBadung.js')
  const getWorldData = require('./getWorldData.js')
  const getDataCountry = require('./getDataCountry.js')
 
  module.exports = {
     getTotalCovidBali,
-    getDataKab,
+    getDataKabBadung,
     getWorldData,
     getDataCountry
  }
