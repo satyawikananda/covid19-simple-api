@@ -144,7 +144,7 @@ const getDataKabBadung = () => {
                     resolve(data)
                 }else{
                     reject({
-                        status: html.status
+                        code: html.status
                     })
                 }
             })
