@@ -9,7 +9,7 @@ const url = 'http://infocovid19.bulelengkab.go.id/'
 
 const getDataKabBuleleng = () => {
     return new Promise(async (resolve,reject) => {
-        axios.get(url)
+        await axios.get(url)
             .then(html => {
                 if(html.status == 200){
                     const $ = cheerio.load(html.data)
