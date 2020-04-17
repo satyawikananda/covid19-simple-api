@@ -36,6 +36,11 @@
             "src": "/covid-badung",
             "dest": "/lambdas/index.js",
             "methods": ["GET"]
+        },
+        {
+            "src": "/covid-buleleng",
+            "dest": "/lambdas/index.js",
+            "methods": ["GET"]
         }
     ]
 }
