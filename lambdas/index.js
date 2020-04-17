@@ -23,6 +23,13 @@ app.get('/covid-badung', (req,res) => {
         })
         .catch(err => console.log(err))
 })
+app.get('/covid-buleleng', (req,res) => {
+    CovidScrapper.getDataKabBuleleng()
+        .then(data => {
+            res.send(data)
+        })
+        .catch(err => console.log(err))
+})
 app.get('/covid-bali', (req,res) => {
     CovidScrapper.getTotalCovidBali()
         .then(data => {
