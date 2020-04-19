@@ -17,6 +17,7 @@ app.use(cors());
 app.use(compression());
 app.use(responseTime());
 app.use(bodyParser.json());
+
 app.get("/", (req, res) => {
   setImmediate(() => {
     try {
@@ -29,7 +30,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/world", (req, res) => {
-  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate");
   setImmediate(() => {
     try {
       CovidScrapper.getWorldData()
@@ -43,7 +44,7 @@ app.get("/api/world", (req, res) => {
   });
 });
 app.get("/api/covid-badung", (req, res) => {
-  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate");
   setImmediate(() => {
     try {
       CovidScrapper.getDataKabBadung()
@@ -57,7 +58,7 @@ app.get("/api/covid-badung", (req, res) => {
   });
 });
 app.get("/api/covid-buleleng", (req, res) => {
-  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate");
   setImmediate(() => {
     try {
       CovidScrapper.getDataKabBuleleng()
@@ -71,7 +72,7 @@ app.get("/api/covid-buleleng", (req, res) => {
   });
 });
 app.get("/api/covid-bali", (req, res) => {
-  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate");
   setImmediate(() => {
     try {
       CovidScrapper.getTotalCovidBali()
@@ -85,7 +86,7 @@ app.get("/api/covid-bali", (req, res) => {
   });
 });
 app.get("/api/covid-tabanan", (req, res) => {
-  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate");
   setImmediate(() => {
     try {
       CovidScrapper.getDataKabTabanan()
@@ -99,10 +100,24 @@ app.get("/api/covid-tabanan", (req, res) => {
   });
 });
 app.get("/api/covid-gianyar", (req, res) => {
-  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate");
   setImmediate(() => {
     try {
       CovidScrapper.getDataKabGianyar()
+        .then((data) => {
+          res.send(data);
+        })
+        .catch((err) => console.log(err));
+    } catch (e) {
+      res.status(400).send("Something went wrong");
+    }
+  });
+});
+app.get("/api/covid-indonesia", (req, res) => {
+  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate");
+  setImmediate(() => {
+    try {
+      CovidScrapper.getDataIndonesia()
         .then((data) => {
           res.send(data);
         })

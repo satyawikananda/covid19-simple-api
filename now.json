@@ -44,6 +44,11 @@
       "src": "/api/covid-gianyar",
       "dest": "/lambdas/index.js",
       "methods": ["GET"]
+    },
+    {
+      "src": "/api/covid-indonesia",
+      "dest": "/lambdas/index.js",
+      "methods": ["GET"]
     }
   ]
 }
