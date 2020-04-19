@@ -1,46 +1,54 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "/lambdas/index.js",
-            "use": "@now/node-server"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/",
-            "dest": "/lambdas/index.js",
-            "methods": ["GET"]
-        },
-        {
-            "src": "/world",
-            "dest": "/lambdas/index.js",
-            "methods": ["GET"]
-        },
-        {
-            "src": "/kabupatenbali",
-            "dest": "/lambdas/index.js",
-            "methods": ["GET"]
-        },
-        {
-            "src": "/covidbali",
-            "dest": "/lambdas/index.js",
-            "methods": ["GET"]
-        },
-        {
-            "src": "/world/:country",
-            "dest": "/lambdas/index.js",
-            "methods": ["GET"]
-        },
-        {
-            "src": "/covid-badung",
-            "dest": "/lambdas/index.js",
-            "methods": ["GET"]
-        },
-        {
-            "src": "/covid-buleleng",
-            "dest": "/lambdas/index.js",
-            "methods": ["GET"]
-        }
-    ]
+  "version": 2,
+  "github": {
+    "enabled": false
+  },
+  "builds": [
+    {
+      "src": "/lambdas/index.js",
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/lambdas/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/api/world",
+      "dest": "/lambdas/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/api/covid-bali",
+      "dest": "/lambdas/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/world/:country",
+      "dest": "/lambdas/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/api/covid-badung",
+      "dest": "/lambdas/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/api/covid-buleleng",
+      "dest": "/lambdas/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/api/covid-tabanan",
+      "dest": "/lambdas/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/api/covid-gianyar",
+      "dest": "/lambdas/index.js",
+      "methods": ["GET"]
+    }
+  ]
 }

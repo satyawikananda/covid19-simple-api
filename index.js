@@ -1,4 +1,3 @@
-const CovidScrapper = require('./CovidScrapper')
+const CovidScrapper = require("./utils");
 
-CovidScrapper.getDataKabBadung()
-    .then(data => console.log(data))
+CovidScrapper.getDataKabGianyar().then((data) => console.log(data));
