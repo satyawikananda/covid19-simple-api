@@ -26,11 +26,6 @@
       "methods": ["GET"]
     },
     {
-      "src": "/world/:country",
-      "dest": "/lambdas/index.js",
-      "methods": ["GET"]
-    },
-    {
       "src": "/api/covid-badung",
       "dest": "/lambdas/index.js",
       "methods": ["GET"]

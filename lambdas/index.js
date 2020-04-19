@@ -7,6 +7,7 @@ const https = require("https");
 const responseTime = require("response-time");
 const compression = require("compression");
 const bodyParser = require("body-parser");
+const path = require("path");
 const CovidScrapper = require("../utils");
 
 http.globalAgent.maxSockets = Infinity;
@@ -17,7 +18,14 @@ app.use(compression());
 app.use(responseTime());
 app.use(bodyParser.json());
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  setImmediate(() => {
+    try {
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      res.sendFile(path.join(__dirname, "../index.html"));
+    } catch (e) {
+      res.status(400).send("Something went wrong");
+    }
+  });
 });
 
 app.get("/api/world", (req, res) => {
