@@ -41,6 +41,11 @@ const getDataKabGianyar = () => {
           ).each((i, e) => {
             meninggalTotalKum.push($(e).text().trim());
           });
+          $(
+            "#pills-profile > div:nth-child(1) > div:nth-child(1) > div > div > div > table > tbody > tr > td:nth-child(6) > div.badge.badge-pill.badge-outline-danger"
+          ).each((i, e) => {
+            jumlahTotalKum.push($(e).text().trim());
+          });
           lastUpd = $(
             "#pills-profile > div:nth-child(1) > div:nth-child(1) > div > div > p.text-left"
           )
