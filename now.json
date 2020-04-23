@@ -5,49 +5,49 @@
   },
   "builds": [
     {
-      "src": "/lambdas/index.js",
+      "src": "/routes/index.js",
       "use": "@now/node-server"
     }
   ],
   "routes": [
     {
       "src": "/",
-      "dest": "/lambdas/index.js",
+      "dest": "/routes/index.js",
       "methods": ["GET"]
     },
     {
       "src": "/api/world",
-      "dest": "/lambdas/index.js",
+      "dest": "/routes/index.js",
       "methods": ["GET"]
     },
     {
       "src": "/api/covid-bali",
-      "dest": "/lambdas/index.js",
+      "dest": "/routes/index.js",
       "methods": ["GET"]
     },
     {
       "src": "/api/covid-badung",
-      "dest": "/lambdas/index.js",
+      "dest": "/routes/index.js",
       "methods": ["GET"]
     },
     {
       "src": "/api/covid-buleleng",
-      "dest": "/lambdas/index.js",
+      "dest": "/routes/index.js",
       "methods": ["GET"]
     },
     {
       "src": "/api/covid-tabanan",
-      "dest": "/lambdas/index.js",
+      "dest": "/routes/index.js",
       "methods": ["GET"]
     },
     {
       "src": "/api/covid-gianyar",
-      "dest": "/lambdas/index.js",
+      "dest": "/routes/index.js",
       "methods": ["GET"]
     },
     {
       "src": "/api/covid-indonesia",
-      "dest": "/lambdas/index.js",
+      "dest": "/routes/index.js",
       "methods": ["GET"]
     }
   ]
