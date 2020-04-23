@@ -4,7 +4,7 @@
   "description": "Simple covid scrapper",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./lambdas/index.js"
+    "start": "nodemon ./routes/index.js"
   },
   "keywords": [],
   "author": "Satya Wikananda",
