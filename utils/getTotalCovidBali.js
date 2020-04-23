@@ -14,7 +14,8 @@ const getTotalCovidBali = async () => {
         const $ = cheerio.load(html.data);
         let totalData = [];
         let kab = [];
-        let ppln = [];
+        let pplnWna = [];
+        let pplnWni = [];
         let ppdn = [];
         let transmisiLokal = [];
         let positifLainnya = [];
@@ -40,50 +41,55 @@ const getTotalCovidBali = async () => {
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(1) > div.card-body > div > table > tbody > tr > td:nth-child(2)"
         ).each((i, e) => {
-          ppln.push($(e).text().trim());
+          pplnWna.push($(e).text().trim());
         });
 
         // Data jumlah perawatan
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(1) > div.card-body > div > table > tbody > tr > td:nth-child(3)"
         ).each((i, e) => {
-          ppdn.push($(e).text().trim());
+          pplnWni.push($(e).text().trim());
         });
 
         // Data Jumlah sembuh
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(1) > div.card-body > div > table > tbody > tr > td:nth-child(4)"
         ).each((i, e) => {
-          transmisiLokal.push($(e).text().trim());
+          ppdn.push($(e).text().trim());
         });
 
         // Data jumlah meninggal
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(1) > div.card-body > div > table > tbody > tr > td:nth-child(5)"
         ).each((i, e) => {
-          positifLainnya.push($(e).text().trim());
+          transmisiLokal.push($(e).text().trim());
         });
 
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(1) > div.card-body > div > table > tbody > tr > td:nth-child(6)"
         ).each((i, e) => {
-          totalPositif.push($(e).text().trim());
+          positifLainnya.push($(e).text().trim());
         });
 
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(1) > div.card-body > div > table > tbody > tr > td:nth-child(7)"
         ).each((i, e) => {
-          dalamPerawatan.push($(e).text().trim());
+          totalPositif.push($(e).text().trim());
         });
 
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(1) > div.card-body > div > table > tbody > tr > td:nth-child(8)"
         ).each((i, e) => {
-          sembuhKab.push($(e).text().trim());
+          dalamPerawatan.push($(e).text().trim());
         });
 
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(1) > div.card-body > div > table > tbody > tr > td:nth-child(9)"
+        ).each((i, e) => {
+          sembuhKab.push($(e).text().trim());
+        });
+        $(
+          "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(1) > div.card-body > div > table > tbody > tr > td:nth-child(10)"
         ).each((i, e) => {
           meninggalKab.push($(e).text().trim());
         });
@@ -97,15 +103,18 @@ const getTotalCovidBali = async () => {
           data.totalKasus[j] = {
             provinsi: totalData[0],
             positif: {
-              ppln: parseInt(totalData[1]),
-              ppdn: parseInt(totalData[2]),
-              transmisiLokal: parseInt(totalData[3]),
-              positifLainnya: parseInt(totalData[4]),
-              totalPositif: parseInt(totalData[5]),
+              ppln: {
+                wna: parseInt(totalData[1]),
+                wni: parseInt(totalData[2]),
+              },
+              ppdn: parseInt(totalData[3]),
+              transmisiLokal: parseInt(totalData[4]),
+              positifLainnya: parseInt(totalData[5]),
+              totalPositif: parseInt(totalData[6]),
             },
-            dirawat: parseInt(totalData[6]),
-            sembuh: parseInt(totalData[7]),
-            meninggal: parseInt(totalData[8]),
+            dirawat: parseInt(totalData[7]),
+            sembuh: parseInt(totalData[8]),
+            meninggal: parseInt(totalData[9]),
           };
         }
 
@@ -114,7 +123,10 @@ const getTotalCovidBali = async () => {
           data.kabupaten[i] = {
             kabupaten: kab[i],
             positif: {
-              ppln: parseInt(ppln[i]),
+              ppln: {
+                wna: parseInt(pplnWna[i]),
+                wni: parseInt(pplnWni[i]),
+              },
               ppdn: parseInt(ppdn[i]),
               transmisiLokal: parseInt(transmisiLokal[i]),
               positifLainnya: parseInt(positifLainnya[i]),
