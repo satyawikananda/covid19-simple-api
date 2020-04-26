@@ -23,6 +23,11 @@ const getTotalCovidBali = async () => {
         let dalamPerawatan = [];
         let sembuhKab = [];
         let meninggalKab = [];
+        let sumberKasus = [];
+        let pasienPerawatan = [];
+        let pasienSembuh = [];
+        let pasienMeninggal = [];
+        let jumlahKondisi = [];
 
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(2) > div.card-body > div > table > tbody > tr > td"
@@ -94,9 +99,41 @@ const getTotalCovidBali = async () => {
           meninggalKab.push($(e).text().trim());
         });
 
+        // sumber kasus
+        $(
+          "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(3) > div.card-body > div > table > tbody > tr > td:nth-child(1)"
+        ).each((i, e) => {
+          sumberKasus.push($(e).text().trim());
+        });
+        // pasien perawatan
+        $(
+          "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(3) > div.card-body > div > table > tbody > tr > td:nth-child(2)"
+        ).each((i, e) => {
+          pasienPerawatan.push($(e).text().trim());
+        });
+        // pasien sembuh
+        $(
+          "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(3) > div.card-body > div > table > tbody > tr > td:nth-child(3)"
+        ).each((i, e) => {
+          pasienSembuh.push($(e).text().trim());
+        });
+        // pasien meninggal
+        $(
+          "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(3) > div.card-body > div > table > tbody > tr > td:nth-child(4)"
+        ).each((i, e) => {
+          pasienMeninggal.push($(e).text().trim());
+        });
+        // jumlah pasien
+        $(
+          "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(3) > div.card-body > div > table > tbody > tr > td:nth-child(5)"
+        ).each((i, e) => {
+          jumlahKondisi.push($(e).text().trim());
+        });
+
         data = {};
         data.totalKasus = [];
         data.kabupaten = [];
+        data.kondisiPasien = [];
 
         let j;
         for (j = 0; j < 1; j++) {
@@ -135,6 +172,17 @@ const getTotalCovidBali = async () => {
             perawatan: parseInt(dalamPerawatan[i]),
             sembuh: parseInt(sembuhKab[i]),
             meninggal: parseInt(meninggalKab[i]),
+          };
+        }
+
+        let k;
+        for (k = 0; k < sumberKasus.length; k++) {
+          data.kondisiPasien[k] = {
+            sumberKasus: sumberKasus[k],
+            dalamPerawatan: parseInt(pasienPerawatan[k]),
+            sembuh: parseInt(pasienSembuh[k]),
+            meninggal: parseInt(pasienMeninggal[k]),
+            jumlahPasien: parseInt(jumlahKondisi[k]),
           };
         }
         resolve(data);
