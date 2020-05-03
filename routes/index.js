@@ -6,7 +6,6 @@ const http = require("http");
 const https = require("https");
 const responseTime = require("response-time");
 const compression = require("compression");
-const bodyParser = require("body-parser");
 const path = require("path");
 const CovidScrapper = require("../utils");
 
@@ -16,7 +15,6 @@ https.globalAgent.maxSockets = Infinity;
 app.use(cors());
 app.use(compression());
 app.use(responseTime());
-app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   setImmediate(() => {
