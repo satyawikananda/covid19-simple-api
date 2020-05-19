@@ -28,6 +28,7 @@ const getTotalCovidBali = async () => {
         let pasienSembuh = [];
         let pasienMeninggal = [];
         let jumlahKondisi = [];
+        let lastUpdate
 
         $(
           "body > div > div > div > div > div:nth-child(3) > div.col-md-12.col-md-offset-1 > div:nth-child(2) > div.card-body > div > table > tbody > tr > td"
@@ -129,11 +130,13 @@ const getTotalCovidBali = async () => {
         ).each((i, e) => {
           jumlahKondisi.push($(e).text().trim());
         });
+        lastUpdate = $('.section-title').text().replace('Data Sebaran Kasus Covid-19 Sampai Dengan Tanggal', '').replace(' di Bali (BALI)', '').trim()
 
         data = {};
         data.totalKasus = [];
         data.kabupaten = [];
         data.kondisiPasien = [];
+        data.lastUpdate = lastUpdate
 
         let j;
         for (j = 0; j < 1; j++) {
