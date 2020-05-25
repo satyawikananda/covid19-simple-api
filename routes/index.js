@@ -125,6 +125,31 @@ app.get("/api/covid-indonesia", (req, res) => {
     }
   });
 });
+app.get('/api/rs-rujukan', (req, res) => {
+  const prov = req.query.prov
+  res.setHeader("Cache-Control", "public,max-age=3600,s-maxage=30");
+  setImmediate(() => {
+    try {
+      if(prov == "" || prov == null){
+        res.status(400).send({
+          code: res.statusCode,
+          success: false,
+          result: null,
+          message: "Query string can not be empty!",
+          creator: "Satya Wikananda"
+        });
+      }else{
+        CovidScrapper.rsRujukan(prov)
+          .then((data) => {
+            res.send(data);
+          })
+          .catch((err) => console.log(err));
+      }
+    } catch (e) {
+      res.status(400).send("Something went wrong");
+    }
+  });
+});
 app.use(express.urlencoded({ extended: false }));
 app.listen(port, () => {
   console.log(`Server listen on port ${port}`);
