@@ -11,42 +11,7 @@
   ],
   "routes": [
     {
-      "src": "/",
-      "dest": "/routes/index.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/world",
-      "dest": "/routes/index.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/covid-bali",
-      "dest": "/routes/index.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/covid-badung",
-      "dest": "/routes/index.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/covid-buleleng",
-      "dest": "/routes/index.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/covid-tabanan",
-      "dest": "/routes/index.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/covid-gianyar",
-      "dest": "/routes/index.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/covid-indonesia",
+      "src": "/.*",
       "dest": "/routes/index.js",
       "methods": ["GET"]
     }
