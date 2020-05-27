@@ -36,6 +36,7 @@ Saya membuat API ini mengambil data dari beberapa website covid daerah setiap ka
 - /api/covid-tabanan => Menampilkan data covid di Kabupaten Tabanan
 - /api/covid-buleleng => Menampilkan data covid di Kabupaten Buleleng
 - /api/covid-indonesia => Menampilkan data covid di seluruh provinsi di Indonesia
+- /api/rs-rujukan/prov?{provinsi} => Menampilkan data rumah sakit rujukan di salah satu provinsi di Indonesia
 
 ## Resources
 
